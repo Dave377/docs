@@ -16,17 +16,20 @@ Coreframe generates a production-ready typography system from a handful of confi
     Select separate fonts for headings and body text using the **Heading Font** and **Body Font** dropdowns. The dropdowns list every font available in your Figma document, including any Google Fonts already loaded. Heading and body can share the same font family if your design uses a single typeface.
   </Step>
   <Step title="Configure your type scale">
-    Set the **Base Font Size** (in px, typically 14–16 px). Then choose a **Type Scale** algorithm: **Ratio Based** (multiplies each step by a musical ratio such as the Perfect Fourth at 1.333 or the Golden Ratio at 1.618), **Linear** (adds a fixed increment per step), or **Fibonacci** (follows the Fibonacci sequence). Use the **Sizes above base** and **Sizes below base** fields to control how many steps the scale extends in each direction.
+    Set the **Base Font Size** (in px, typically 14–16 px). Then choose a **Type Scale** algorithm: **Ratio Based** (multiplies each step by a ratio such as the Perfect Fourth at 1.333 or the Golden Ratio at 1.618), **Linear** (adds a fixed increment per step), or **Fibonacci** (follows the Fibonacci sequence). Use the **Sizes above base** and **Sizes below base** fields to control how many steps the scale extends in each direction.
   </Step>
-  <Step title="Review and edit the scale preview">
-    Click **Preview Scale** to generate the full list of type steps. Each step shows its size in px, line height, and letter spacing. Coreframe assigns roles automatically — large sizes become `display` and `heading`, the base size becomes `body`, and smaller sizes become `label`. Pro users can click **Edit** on any row to rename a step, adjust its size, line height, or letter spacing, toggle font weights, or duplicate and delete steps.
+  <Step title="Preview the scale">
+    Click **Preview Scale** to generate the full list of type steps. Each step shows its size in px, line height, and letter spacing. Coreframe assigns roles automatically — large sizes become `display` and `heading`, the base size becomes `body` or `Base`, and smaller sizes become `Small`. Pro users can click **Edit** on any row to rename a step, adjust its size, line height, or letter spacing, toggle font weights, or duplicate and delete steps.
   </Step>
-  <Step title="Click Generate">
-    Click **Generate Styles** to expand each scale step into individual weight variants (e.g., `Heading 1 Bold`, `Heading 1 Regular`), then click **Generate Typography Style** on the final screen to push all text styles into Figma.
+  <Step title="Expand into weight variants">
+    Click **Generate Styles** to expand each scale step into individual weight variants (e.g., `Heading 1 Bold`, `Heading 1 Regular`). Review the final list of export-ready text styles on the next screen.
+  </Step>
+  <Step title="Push to Figma">
+    Click **Generate Typography Style** on the final screen to push all text styles into your Figma document.
   </Step>
 </Steps>
 
-## Generated tokens
+## Generated output
 
 When you generate, Coreframe creates the following in your Figma document:
 

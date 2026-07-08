@@ -12,7 +12,7 @@ Coreframe can export your Figma design tokens directly into the configuration fo
   <Step title="Open the Developer tab">
     Open Coreframe in Figma and click the **Developer** tab at the top of the plugin panel.
   </Step>
-  <Step title="Click Export Tailwind v3">
+  <Step title="Click Export config.js">
     Find the **Export Tailwind v3 config** card and click the **Export config.js** button. Coreframe reads your local Figma variables and generates the config file.
   </Step>
   <Step title="Save the downloaded file">
@@ -62,8 +62,8 @@ module.exports = {
         thick:   '2px',
       },
       opacity: {
-        subtle:   '0.08',
-        disabled: '0.40',
+        subtle:   0.08,
+        disabled: 0.40,
       },
     },
   },
@@ -77,7 +77,7 @@ module.exports = {
   <Step title="Open the Developer tab">
     Open Coreframe in Figma and click the **Developer** tab at the top of the plugin panel.
   </Step>
-  <Step title="Click Export Tailwind v4">
+  <Step title="Click Export theme.css">
     Find the **Export Tailwind v4 theme.css** card and click the **Export theme.css** button. Coreframe generates a CSS file using the `@theme` block.
   </Step>
   <Step title="Save the downloaded file">
@@ -92,7 +92,7 @@ module.exports = {
   </Step>
 </Steps>
 
-Tailwind v4 reads CSS custom properties declared inside `@theme` and makes them available as utility classes automatically. The exported file begins with `@import "tailwindcss";` so the theme block is self-contained.
+Tailwind v4 reads CSS custom properties declared inside `@theme` and makes them available as utility classes automatically. The exported file begins with `@import "tailwindcss";` so the theme block is self-contained — you don't need to add a separate Tailwind import.
 
 ```css theme.css
 @import "tailwindcss";

@@ -15,14 +15,17 @@ Coreframe builds a complete color system from your brand's base hues. You provid
   <Step title="Enter your brand's base colors">
     You'll see seven default seed colors: **Brand**, **Secondary**, **Neutral**, **Success**, **Warning**, **Error**, and **Info**. Click the color swatch next to each name and enter your hex value, or drag the Hue, Saturation, and Brightness sliders. Quick-pick swatches let you jump to a preset instantly.
   </Step>
-  <Step title="Preview the generated palette">
-    Click **Generate Palette** to advance to the Preview step. Coreframe calculates shades across an 11-step scale: `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, and `950`. You can also choose a 5-step (`100–900`) or 9-step (`100–900`) scale from the scale selector.
+  <Step title="Generate the palette">
+    Click **Generate Palette** to advance to the Preview step. Coreframe calculates shades across an 11-step scale: `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, and `950`. You can also choose a 5-step (`100`, `300`, `500`, `700`, `900`) or 9-step (`100–900`) scale from the scale selector.
   </Step>
   <Step title="Edit individual swatches (Pro)">
     Pro users can click any swatch in the palette preview to open an inline color editor. Adjust the hue, saturation, and brightness, or type a hex value directly, then click **Apply** to override that specific shade.
   </Step>
-  <Step title="Click Generate to create Figma variables">
-    On the **Semantic Tokens** step, review the automatically generated semantic mappings, then click **Generate Color Tokens**. Coreframe creates a `Color` variable collection in your Figma file containing all primitive and semantic variables. Pro users can continue to the **Component Tokens** step before generating to include component-level variables too.
+  <Step title="Review semantic tokens and generate">
+    On the **Semantic Tokens** step, review the automatically generated semantic mappings. Pro users can change any light or dark reference using the dropdowns. Click **Generate Color Tokens** to create the `Color` variable collection in Figma with all primitive and semantic variables. To also include component-level variables, click **Map Component Tokens** instead to proceed to the next step first.
+  </Step>
+  <Step title="Generate component tokens (Pro)">
+    On the **Component Tokens** step, review the per-component, per-state color mappings. Free users can preview these mappings but the exported variables will include only primitive and semantic tokens. Pro users can customize any mapping and click **Generate Component Tokens** to include component-level variables in the output.
   </Step>
 </Steps>
 
@@ -31,8 +34,8 @@ Coreframe builds a complete color system from your brand's base hues. You provid
 Coreframe organizes color tokens into three layers, each building on the one below it.
 
 - **Base colors** — the raw palette generated from your seed hues. These live under `primitive/{colorName}/{shade}` (e.g., `primitive/brand/500`, `primitive/neutral/200`) and are marked hidden from publishing so they stay internal to your system.
-- **Semantic tokens** — purpose-based aliases that point at palette values (e.g., `semantic/foreground/default`, `semantic/surface/muted`, `semantic/action/primary`). Semantic tokens carry both a Light and a Dark mode value, so toggling modes updates every semantic usage instantly. Semantic token mapping is a **Pro** feature.
-- **Component tokens** — component-specific slots that reference semantic or primitive values (e.g., `color/button/primary/background/default`, `color/button/primary/text/hover`). These live in the `Component` collection so they stay separate from the core `Color` collection. Component token generation is a **Pro** feature.
+- **Semantic tokens** — purpose-based aliases that point at palette values (e.g., `semantic/foreground/default`, `semantic/surface/muted`, `semantic/action/primary`). Semantic tokens carry both a Light and a Dark mode value, so toggling modes updates every semantic usage instantly. Editing semantic token mappings is a **Pro** feature.
+- **Component tokens** — component-specific slots that reference semantic or primitive values (e.g., `color/button/primary/background/default`, `color/button/primary/text/hover`). These live in the `Component` collection so they stay separate from the core `Color` collection. Exporting component tokens is a **Pro** feature.
 
 ## Light and dark mode
 

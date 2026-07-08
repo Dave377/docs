@@ -10,18 +10,18 @@ Consistent spacing is what makes a design system feel cohesive. Coreframe genera
 
 Open Coreframe and click the **Spacing** tab. The generator has three sections: **Primitive**, **Semantic**, and **Component**.
 
-1. **Set your base unit** — enter a value in pixels or click one of the preset buttons: `2px`, `4px`, or `8px`. A 4 px grid works well for dense UIs; an 8 px grid suits more spacious layouts.
-2. **Preview the scale** — click **Generate** to compute the full primitive spacing scale. Coreframe calculates 19 steps from the base unit using a set of multipliers: `0×`, `0.5×`, `1×`, `1.5×`, `2×`, `2.5×`, `3×`, `4×`, `5×`, `6×`, `7×`, `8×`, `10×`, `12×`, `14×`, `16×`, `20×`, `24×`, and `32×`. On a 4 px base, this produces values from `0 px` through `128 px`.
-3. **Map semantic tokens** — move to the **Semantic** tab to review the pre-built semantic aliases. These map abstract roles such as `space-sm`, `layout-default`, or `inset-comfortable` to specific primitive steps. Pro users can rename, repoint, or add custom mappings.
+1. **Set your base unit** — enter a value in pixels or click one of the preset buttons: `2px`, `4px`, or `8px`. A 4 px grid works well for dense UIs; an 8 px grid suits more spacious layouts. Click **Generate** to compute the full primitive spacing scale.
+2. **Preview the scale** — Coreframe calculates 19 steps from the base unit using a set of multipliers: `0×`, `0.5×`, `1×`, `1.5×`, `2×`, `2.5×`, `3×`, `4×`, `5×`, `6×`, `7×`, `8×`, `10×`, `12×`, `14×`, `16×`, `20×`, `24×`, and `32×`. On a 4 px base, this produces values from `0 px` through `128 px`.
+3. **Map semantic tokens** — click the **Semantic** tab to review the pre-built semantic aliases. These map abstract roles such as `space-sm`, `inset-default`, `stack-tight`, or `layout-default` to specific primitive steps. Pro users can rename, repoint, or add custom mappings.
 4. **Map component tokens** — on the **Component** tab, each UI component (Button, Card, Modal, Input, and many others) lists its spacing slots — padding-x, padding-y, gap — each pointing at a semantic token. Pro users can adjust these mappings before generating.
-5. **Click Generate** — hit **Generate spacing token** to push all variables into Figma.
+5. **Click Generate** — on the Component tab, click **Generate spacing token** to push all variables into Figma.
 
 ## What gets created
 
 Coreframe writes variables into two Figma collections:
 
-- **Spacing collection** — contains all primitive variables (e.g., `primitive/0`, `primitive/1`, `primitive/2` … `primitive/32`) and semantic variables (e.g., `semantic/space-sm`, `semantic/layout-default`, `semantic/inset-comfortable`). Primitive variables are scoped to `GAP` and `WIDTH_HEIGHT` and hidden from publishing to keep the panel clean.
-- **Component collection** — contains component-level spacing variables such as `spacing/button-padding-x` and `spacing/card-gap`. These reference semantic variables via aliases, so updating a semantic mapping propagates to every component that uses it.
+- **Spacing collection** — contains all primitive variables (e.g., `spacing-0`, `spacing-1`, `spacing-2` … `spacing-32`) and semantic variables (e.g., `space-sm`, `layout-default`, `inset-default`, `component-comfortable`). Primitive variables are scoped to `GAP` and `WIDTH_HEIGHT` and hidden from publishing to keep the panel clean.
+- **Component collection** — contains component-level spacing variables such as `button-padding-x` and `card-gap`. These reference semantic variables via aliases, so updating a semantic mapping propagates to every component that uses it. Component spacing variables are included for **Pro** users.
 
 ## How components use spacing
 

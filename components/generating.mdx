@@ -1,28 +1,28 @@
 ---
-title: "Generate the Full Component Library with Coreframe"
+title: "How to Generate Figma UI Components with Coreframe"
 sidebarTitle: "Generating"
-description: "Generate all 40+ Figma UI components at once — Coreframe builds the complete component set and places it on a dedicated Components page."
+description: "Click any component card in Coreframe to generate it, bind it to your design tokens, and place it on the Components page in your Figma file."
 ---
 
-Coreframe can generate your entire UI component library in a single action. Instead of building component sets by hand, you click one button and Coreframe scaffolds every component, binds it to your design tokens, and organizes everything onto a dedicated page inside your Figma file — ready for your team to start using immediately.
+Coreframe generates each UI component on demand — browse the grid, click a card, and Coreframe scaffolds that component set, binds it to your design tokens, and places it on a dedicated page inside your Figma file. You can generate every component in the library by working through the grid at your own pace, or pick only the components your project needs.
 
-## Generate all components
+## Generate components
 
 <Steps>
   <Step title="Generate your design tokens first">
-    Make sure you have already run the token generation step. Components bind directly to your Figma variables, so the token collection needs to exist before components are placed. If you haven't done this yet, head to the Tokens tab and generate your token set.
+    Make sure you have already run the token generation step. Components bind directly to your Figma variables, so the token collection needs to exist before components are placed. If you haven't done this yet, head to the **Tokens** tab and generate your token set.
   </Step>
   <Step title="Open the Components tab">
     In the Coreframe plugin panel, click the **Components** tab. You'll see a searchable grid of every available component, organized by category.
   </Step>
   <Step title="Browse and filter the component grid">
-    Use the search bar or the category filter pills — Forms, Navigation, Feedback, Data Display, Overlays, and Layout — to explore what's available. Each card shows a live preview thumbnail and the variant count for that component.
+    Use the search bar or the category filter pills — **Forms**, **Navigation**, **Feedback**, **Data Display**, **Overlays**, and **Layout** — to explore what's available. Each card shows a live preview thumbnail and the variant count for that component.
   </Step>
-  <Step title="Click Generate All">
-    Click the **Generate All** button to kick off the full library build. Coreframe queues every component and generates them in sequence.
+  <Step title="Click a component card to generate it">
+    Click any component card to generate that component. Coreframe builds the full variant matrix for that component and places it on the **Components** page in your Figma file. A spinner appears on the card while generation is in progress.
   </Step>
   <Step title="Coreframe creates a Components page">
-    Once generation completes, Coreframe creates (or updates) a page named **Components** in your Figma file and places all generated component sets there in a structured layout, grouped by category.
+    The first time you generate a component, Coreframe creates a page named **Components** in your Figma file. Subsequent generations add to the same page, grouped by category in a structured layout.
   </Step>
   <Step title="Review the documentation frames">
     Alongside each component set, Coreframe auto-generates a documentation frame showing the component name, a short description, and a variant overview. These frames are ready to share with developers or stakeholders directly inside Figma.
@@ -30,15 +30,15 @@ Coreframe can generate your entire UI component library in a single action. Inst
 </Steps>
 
 <Tip>
-  Generate tokens first. Components bind to your Figma variables — if variables don't exist, Coreframe creates fallback values, but your components won't update when you change token values later.
+  Generate tokens first. Components bind to your Figma variables — if variables don't exist, Coreframe creates fallback values, but your components won't update automatically when you change a token value later.
 </Tip>
 
 ## Regenerating components
 
-You can re-run generation at any time — for example, after updating your token values or adding a new color palette. Coreframe finds existing component sets by name and replaces them with freshly generated versions.
+You can re-click any component card at any time — for example, after updating your token values or adding a new color palette. Coreframe finds the existing component set by name and replaces it with a freshly generated version.
 
 <Warning>
-  Regenerating will overwrite existing component sets with the same name. Any local overrides or detached instances will not be updated — only the master component set is replaced.
+  Regenerating overwrites the existing component set with the same name. Any local overrides or detached instances will not be updated — only the main component set is replaced.
 </Warning>
 
 ## Component dependencies

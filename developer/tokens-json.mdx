@@ -4,7 +4,7 @@ sidebarTitle: "tokens.json"
 description: "Export all your Coreframe design tokens as a tokens.json file compatible with Style Dictionary, Token Studio, and other design token toolchains."
 ---
 
-The `tokens.json` export gives you every design token Coreframe has generated — colors, spacing, radius, border widths, and opacity values — in a single structured JSON file. The format follows W3C design token conventions, so it slots straight into popular toolchains like Style Dictionary and Token Studio without any manual conversion. Each token carries its value and type, making it easy for automated pipelines to transform the file into CSS, SCSS, JavaScript, or any other target format your project needs.
+The `tokens.json` export gives you every design token Coreframe has generated — colors, spacing, radius, border widths, and opacity values — in a single structured JSON file. The format is compatible with popular toolchains like Style Dictionary and Token Studio, so it slots straight into an automated pipeline without any manual conversion. Each token is stored as a raw value, and alias tokens carry a `$value` reference so downstream tools can resolve the full chain.
 
 ## Export tokens.json
 
@@ -22,7 +22,7 @@ The `tokens.json` export gives you every design token Coreframe has generated �
 
 ## File structure
 
-Coreframe organises tokens by category at the top level, then by scale or name within each category. Every leaf node contains a `value` field holding the raw token value and a `type` field describing the token kind. The exported file also includes a `name`, `version`, and `generatedAt` timestamp so you always know which Coreframe session produced it.
+Coreframe organises tokens by collection at the top level, then by name path within each collection. Color tokens are stored as hex strings. Spacing, radius, border, and opacity tokens are stored as raw numbers. Alias tokens — where one token references another — use a `$type: "alias"` object with a `$value` reference path. The exported file also includes a `name`, `version`, and `generatedAt` timestamp so you always know which Coreframe session produced it.
 
 ```json
 {
@@ -31,39 +31,47 @@ Coreframe organises tokens by category at the top level, then by scale or name w
   "generatedAt": "2025-01-15T10:30:00.000Z",
   "tokens": {
     "color": {
-      "primary": {
-        "50":  { "value": "#f0fdf4", "type": "color" },
-        "100": { "value": "#dcfce7", "type": "color" },
-        "500": { "value": "#179b49", "type": "color" },
-        "600": { "value": "#127a3a", "type": "color" },
-        "900": { "value": "#14532d", "type": "color" }
+      "palette": {
+        "primary": {
+          "50":  "#f0fdf4",
+          "100": "#dcfce7",
+          "500": "#179b49",
+          "600": "#127a3a",
+          "900": "#14532d"
+        },
+        "neutral": {
+          "50":  "#fafafa",
+          "100": "#f5f5f5",
+          "500": "#737373",
+          "900": "#171717"
+        }
       },
-      "neutral": {
-        "50":  { "value": "#fafafa", "type": "color" },
-        "100": { "value": "#f5f5f5", "type": "color" },
-        "500": { "value": "#737373", "type": "color" },
-        "900": { "value": "#171717", "type": "color" }
+      "semantic": {
+        "brand": {
+          "$type": "alias",
+          "$value": "{color.palette.primary.500}"
+        }
       }
     },
     "spacing": {
-      "1": { "value": "4px",  "type": "spacing" },
-      "2": { "value": "8px",  "type": "spacing" },
-      "3": { "value": "12px", "type": "spacing" },
-      "4": { "value": "16px", "type": "spacing" }
+      "1": 4,
+      "2": 8,
+      "3": 12,
+      "4": 16
     },
     "radius": {
-      "sm": { "value": "4px",  "type": "borderRadius" },
-      "md": { "value": "8px",  "type": "borderRadius" },
-      "lg": { "value": "12px", "type": "borderRadius" },
-      "xl": { "value": "16px", "type": "borderRadius" }
+      "sm": 4,
+      "md": 8,
+      "lg": 12,
+      "xl": 16
     },
     "border": {
-      "default": { "value": "1px", "type": "borderWidth" },
-      "thick":   { "value": "2px", "type": "borderWidth" }
+      "default": 1,
+      "thick":   2
     },
     "opacity": {
-      "subtle":   { "value": "0.08", "type": "opacity" },
-      "disabled": { "value": "0.40", "type": "opacity" }
+      "subtle":   0.08,
+      "disabled": 0.40
     }
   }
 }
@@ -107,7 +115,3 @@ await sd.buildAllPlatforms();
 ```
 
 Run your Style Dictionary build step whenever you re-export from Coreframe to regenerate all downstream files automatically.
-
-<Tip>
-  Refer to `buildTokensJson.ts` in the Coreframe source to see exactly how Figma variables are mapped into the token hierarchy — including how collection names become top-level keys and how alias values are resolved.
-</Tip>
