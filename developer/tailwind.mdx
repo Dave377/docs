@@ -1,0 +1,137 @@
+---
+title: "Export Tailwind CSS Config from Your Figma Design Tokens"
+sidebarTitle: "Tailwind Export"
+description: "Export your Coreframe tokens as a Tailwind v3 config file or Tailwind v4 theme.css so your engineers use the exact same values as the design."
+---
+
+Coreframe can export your Figma design tokens directly into the configuration format Tailwind CSS expects — no manual copying, no drift between design and code. Two export targets are available: a `tailwind.config.js` for Tailwind v3 projects that extend the classic JavaScript config, and a `theme.css` for Tailwind v4 projects that use the new CSS-first `@theme` block. Both files include your full token set: colors, spacing, border radius, border widths, and opacity values.
+
+## Tailwind v3 — tailwind.config.js
+
+<Steps>
+  <Step title="Open the Developer tab">
+    Open Coreframe in Figma and click the **Developer** tab at the top of the plugin panel.
+  </Step>
+  <Step title="Click Export Tailwind v3">
+    Find the **Export Tailwind v3 config** card and click the **Export config.js** button. Coreframe reads your local Figma variables and generates the config file.
+  </Step>
+  <Step title="Save the downloaded file">
+    When the download prompt appears, save the file as `tailwind.config.js`.
+  </Step>
+  <Step title="Drop it into your project root">
+    Move `tailwind.config.js` into your project root. If you already have a Tailwind config, merge the `theme.extend` keys from the exported file into your existing config to preserve any project-specific overrides.
+  </Step>
+</Steps>
+
+Coreframe maps your tokens into `theme.extend` so your export never wipes out Tailwind's default scale — it only adds or overrides the values your design system defines.
+
+```js tailwind.config.js
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx,html}"],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50:  '#f0fdf4',
+          100: '#dcfce7',
+          500: '#179b49',
+          600: '#127a3a',
+          900: '#14532d',
+        },
+        neutral: {
+          50:  '#fafafa',
+          100: '#f5f5f5',
+          500: '#737373',
+          900: '#171717',
+        },
+      },
+      spacing: {
+        1: '4px',
+        2: '8px',
+        3: '12px',
+        4: '16px',
+      },
+      borderRadius: {
+        sm: '4px',
+        md: '8px',
+        lg: '12px',
+        xl: '16px',
+      },
+      borderWidth: {
+        default: '1px',
+        thick:   '2px',
+      },
+      opacity: {
+        subtle:   '0.08',
+        disabled: '0.40',
+      },
+    },
+  },
+  plugins: [],
+};
+```
+
+## Tailwind v4 — theme.css
+
+<Steps>
+  <Step title="Open the Developer tab">
+    Open Coreframe in Figma and click the **Developer** tab at the top of the plugin panel.
+  </Step>
+  <Step title="Click Export Tailwind v4">
+    Find the **Export Tailwind v4 theme.css** card and click the **Export theme.css** button. Coreframe generates a CSS file using the `@theme` block.
+  </Step>
+  <Step title="Save the downloaded file">
+    When the download prompt appears, save the file as `theme.css` — for example, into your `src/styles/` directory.
+  </Step>
+  <Step title="Import it in your CSS entry point">
+    Add an import at the top of your project's main CSS file so Tailwind v4 picks up your custom theme:
+
+    ```css
+    @import './theme.css';
+    ```
+  </Step>
+</Steps>
+
+Tailwind v4 reads CSS custom properties declared inside `@theme` and makes them available as utility classes automatically. The exported file begins with `@import "tailwindcss";` so the theme block is self-contained.
+
+```css theme.css
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary-50:  #f0fdf4;
+  --color-primary-100: #dcfce7;
+  --color-primary-500: #179b49;
+  --color-primary-600: #127a3a;
+  --color-primary-900: #14532d;
+
+  --color-neutral-50:  #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-500: #737373;
+  --color-neutral-900: #171717;
+
+  /* Spacing */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Border widths */
+  --border-default: 1px;
+  --border-thick:   2px;
+
+  /* Opacity */
+  --opacity-subtle:   0.08;
+  --opacity-disabled: 0.40;
+}
+```
+
+<Note>
+  Developer exports are in beta. The token structure may evolve as Coreframe adds new token categories and refines naming conventions. Re-export after regenerating your tokens to keep your code in sync with the latest design.
+</Note>

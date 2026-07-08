@@ -1,47 +1,37 @@
 ---
-title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+title: "Get Started with Coreframe in Figma"
+sidebarTitle: "Quickstart"
+description: "Install Coreframe from the Figma Community and generate your first design system tokens and components in under 5 minutes."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
-
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+Coreframe gets you from a blank Figma file to a fully structured design system in a single session. This guide walks you through installing the plugin, configuring your brand settings, and generating your first tokens and components — start to finish in under five minutes.
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
-
-    ```bash
-    npm install your-package
-    ```
+  <Step title="Install from Figma Community">
+    Open [Figma Community](https://www.figma.com/community) in your browser or from within Figma. Search for **Coreframe** and click **Open in Figma** on the plugin listing. Figma will prompt you to install it — confirm, and it's immediately available in your plugins menu.
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
-
-    ```bash
-    your-cli init
-    ```
+  <Step title="Open the plugin">
+    In any Figma file, go to the main menu (the Figma logo in the top-left corner) → **Plugins** → **Coreframe**. The plugin panel opens at the right of your canvas. You can also right-click anywhere on the canvas and select **Plugins → Coreframe**.
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
-
-    ```bash
-    your-cli start
-    ```
+  <Step title="Configure your colors">
+    In the **Tokens** tab, select **Colors** from the sidebar. Enter your brand's primary color and let Coreframe generate a full color palette — including neutral, semantic, and state colors — automatically. Adjust individual swatches as needed before generating.
+  </Step>
+  <Step title="Generate your tokens">
+    Click **Generate** on the Colors tab to create Figma variables for your entire color palette. Repeat for any other token categories you need — typography, spacing, grid, border, radius, shadows, and opacity — each with its own tab in the sidebar. Tokens are created as native Figma variables in your file.
+  </Step>
+  <Step title="Generate your components">
+    Switch to the **Components** tab. Select any component from the list — or generate them all at once — and click **Generate**. Coreframe builds each component with full variant sets, binds them to your tokens, and places them on a dedicated Components page in your Figma file, alongside auto-generated documentation.
+  </Step>
+  <Step title="Your design system is ready">
+    Your Figma file now contains a complete, token-bound design system. Share it with your team, use the components directly in your designs, or head to the **Developer** tab to export token files for your codebase.
   </Step>
 </Steps>
 
 <Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
+  Upgrade to Pro to unlock developer exports (Tailwind v3, Tailwind v4, and `tokens.json`), semantic token mapping, individual color swatch editing, and the full library of Pro components.
 </Tip>
+
+## Next steps
+
+- Learn about all the token types Coreframe generates → [Tokens overview](./tokens/overview)
+- Explore the full component library → [Components overview](./components/overview)

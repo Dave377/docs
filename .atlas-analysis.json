@@ -1,0 +1,83 @@
+{
+  "projectType": "saas",
+  "projectName": "Coreframe",
+  "projectDescription": "A Figma plugin that generates a complete design system — tokens, components, and developer exports — directly inside your Figma file.",
+  "theme": "willow",
+  "primaryColor": "#179b49",
+  "lightColor": "#82c8a6",
+  "darkColor": "#aeb152",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "installation"
+            ]
+          },
+          {
+            "group": "Design Tokens",
+            "pages": [
+              "tokens/overview",
+              "tokens/colors",
+              "tokens/typography",
+              "tokens/spacing",
+              "tokens/grid",
+              "tokens/border-radius",
+              "tokens/shadows",
+              "tokens/opacity"
+            ]
+          },
+          {
+            "group": "Components",
+            "pages": [
+              "components/overview",
+              "components/generating",
+              "components/single-components",
+              "components/component-list"
+            ]
+          },
+          {
+            "group": "Developer Exports",
+            "pages": [
+              "developer/overview",
+              "developer/tokens-json",
+              "developer/tailwind"
+            ]
+          },
+          {
+            "group": "Pro & Licensing",
+            "pages": [
+              "pro/overview",
+              "pro/activate",
+              "pro/faq"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "One-click design token generation (colors, typography, spacing, grid, border, radius, shadows, opacity) with Figma variables",
+    "Full component library generation — 40+ components with variants, component properties, and token bindings",
+    "Single component generator for inserting individual components at any time",
+    "Developer exports: tokens.json, Tailwind v3 config, and Tailwind v4 theme CSS",
+    "Semantic color token system with light/dark mode support",
+    "Pro license tier with advanced token editing, semantic mapping, and developer export features",
+    "Live documentation generation inside Figma alongside components"
+  ],
+  "publicApiSurface": [
+    "Token tabs: Colors, Typography, Spacing, Grid, Border, Radius, Shadows, Opacity",
+    "Component system generator (generates full 40+ component set)",
+    "Single component generator (insert individual components)",
+    "Developer Tab: Export tokens.json",
+    "Developer Tab: Export Tailwind v4 theme.css",
+    "Developer Tab: Export Tailwind v3 tailwind.config.js",
+    "Pro Modal: license key activation via LemonSqueezy",
+    "Pro Modal: purchase link (buy.polar.sh / lemonsqueezy)"
+  ]
+}

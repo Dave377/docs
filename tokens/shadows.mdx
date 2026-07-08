@@ -1,0 +1,48 @@
+---
+title: "Shadow Tokens — Elevation and Drop Shadow Styles in Figma"
+sidebarTitle: "Shadows"
+description: "Generate a shadow elevation scale as Figma effect styles — from subtle outlines to dramatic drop shadows — for your design system."
+---
+
+Shadows communicate elevation and depth, helping users understand which elements sit on top of others. Coreframe generates a shadow scale as Figma effect styles and semantic aliases, giving each component in your system a named elevation token rather than a one-off box-shadow value.
+
+## How to configure shadow tokens
+
+Open Coreframe and click the **Shadows** tab. The generator has two sections: **Primitive** and **Semantic**.
+
+On the **Primitive** tab you'll find eight default shadow levels based on the Tailwind shadow scale:
+
+| Name | Label | Description |
+|---|---|---|
+| `shadow-none` | None | No shadow |
+| `shadow-xs` | XS | Faint 1 px drop |
+| `shadow-sm` | Small | Subtle two-layer shadow |
+| `shadow` | Default | Standard card-level shadow |
+| `shadow-lg` | Large | Elevated popover shadow |
+| `shadow-xl` | XL | Floating panel shadow |
+| `shadow-2xl` | 2XL | Deep dramatic shadow |
+| `shadow-inner` | Inner | Inset shadow for recessed elements |
+
+Each shadow can have **multiple layers**. Click **Edit** on any row to open the layer editor. For each layer you can set:
+
+- **X and Y offset** (px) — control the direction of the shadow
+- **Blur** (px) — the feathering radius
+- **Spread** (px) — how far the shadow expands before blurring
+- **Color** — a hex color picker
+- **Opacity** — a 0–1 value applied via `rgb(r g b / opacity)` syntax
+- **Inset** — toggle to create an inset (inner) shadow
+
+Click **Add Layer** to stack additional shadow layers on a single token, or click the trash icon to remove one. The **CSS Output** panel at the bottom of the editor shows the full `box-shadow` value in real time.
+
+Click **Add Custom Shadow** to create a new shadow token from scratch. Click **Map Semantic Shadows** to advance to the Semantic tab.
+
+On the **Semantic** tab you'll see pre-built mappings from component roles to primitive shadows — for example, `shadow-button → shadow-xs`, `shadow-card → shadow-sm`, `shadow-dropdown → shadow`, and `shadow-modal → shadow-lg`. Pro users can change any mapping or add new semantic shadow tokens.
+
+Click **Generate Shadows** to push all styles and variables into Figma.
+
+## What gets created
+
+Coreframe generates the following in your Figma document:
+
+- **Figma effect styles** — each primitive shadow becomes an effect style stored under `shadow/{name}`. These appear in the Figma effects panel and can be applied to any layer directly from the UI.
+- **Shadow variables** — both primitive and semantic shadow tokens are written to a variable collection so that developer export captures token names rather than raw CSS values.

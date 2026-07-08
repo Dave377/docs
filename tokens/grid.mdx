@@ -1,0 +1,29 @@
+---
+title: "Grid Tokens — Layout Grid and Column Settings in Figma"
+sidebarTitle: "Grid"
+description: "Generate grid layout tokens for columns, gutters, and margins so your Figma frames use a consistent responsive grid."
+---
+
+A well-defined layout grid keeps every screen aligned and makes responsive design decisions straightforward. Coreframe lets you configure column counts, gutter widths, and margins for each breakpoint, then generates the corresponding Figma grid styles and variable tokens so your frames always reflect the intended layout system.
+
+## How to configure your grid
+
+Open Coreframe and select the **Grid** tab. The generator shows three breakpoints — **Desktop** (1440 px), **Tablet** (768 px), and **Mobile** (375 px) — as tabs. Configure each breakpoint independently:
+
+- **Columns** — choose from the preset buttons (`2`, `4`, `6`, `8`, `12`, `16`) or drag the slider to any value between 1 and 24. A 12-column grid is standard for desktop; 8 columns for tablet and 4 for mobile are common starting points.
+- **Gutter width** — enter the horizontal space between columns in pixels. Desktop layouts typically use 24 px gutters; mobile layouts work well at 16 px.
+- **Margin** — enter the outer horizontal margin in pixels. This is the space between the viewport edge and the first/last column. Desktop layouts often use 80 px margins to center content; mobile uses 16 px.
+- **Alignment** — choose how columns align within the frame: `left`, `center`, `right`, or `stretch`. `Stretch` is the most common option and fills the available width evenly.
+
+A live preview below the controls shows how your grid looks at the configured breakpoint, with columns highlighted in violet and margins in red.
+
+Click **Generate Grid Style** to write all three breakpoints into Figma.
+
+## What gets created
+
+Coreframe pushes grid definitions into your Figma document in two forms:
+
+- **Grid variable tokens** — each breakpoint's columns, gutter, and margin values are stored as individual tokens (e.g., `grid/desktop/columns`, `grid/desktop/gutter`, `grid/desktop/margin`). These can be referenced by layout frames or exported to code for use in a responsive grid utility.
+- **Grid styles** — the column layout is applied as a Figma layout grid style to your frames, so new frames can adopt the correct grid in one click from the styles panel.
+
+The summary row at the bottom of the generator gives you a quick three-column view of all breakpoints so you can confirm the full responsive set before generating.

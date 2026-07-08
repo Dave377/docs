@@ -1,0 +1,50 @@
+---
+title: "Design Tokens Overview — Figma Variables with Coreframe"
+sidebarTitle: "Overview"
+description: "Coreframe generates all your design tokens as native Figma variables — colors, typography, spacing, grid, border, radius, shadows, and opacity."
+---
+
+Coreframe generates your entire design token foundation directly inside Figma, creating native Figma Variables — not just styles. Every value you configure becomes a reusable variable that components can bind to, modes can override, and developers can export to code. Instead of manually managing swatches and text styles, you define your system once and Coreframe handles the rest.
+
+## Token types
+
+<CardGroup cols={2}>
+  <Card title="Colors" icon="palette">
+    Brand, semantic, and component color palettes
+  </Card>
+  <Card title="Typography" icon="type">
+    Font family, size, weight, line height scales
+  </Card>
+  <Card title="Spacing" icon="ruler">
+    Consistent spacing scale for padding and gaps
+  </Card>
+  <Card title="Grid" icon="table">
+    Layout grid columns and gutters
+  </Card>
+  <Card title="Border" icon="border-all">
+    Border width tokens
+  </Card>
+  <Card title="Radius" icon="circle">
+    Corner radius scale
+  </Card>
+  <Card title="Shadows" icon="shadow">
+    Elevation and shadow styles
+  </Card>
+  <Card title="Opacity" icon="eye">
+    Opacity scale for overlays and disabled states
+  </Card>
+</CardGroup>
+
+## How tokens work in Figma
+
+When Coreframe generates a token type, the values land in your Figma document as **Figma Variables** inside named collections (e.g., `Color`, `Spacing`, `Component`). This means you can:
+
+- **Bind variables to any layer** — attach a spacing variable to a component's padding so resizing the scale updates every instance automatically.
+- **Switch modes instantly** — color tokens are created with both `Light` and `Dark` modes. Toggling a frame's variable mode swaps the entire palette in one click.
+- **Export to code** — variables can be exported as JSON, CSS custom properties, or any format your dev tooling supports, keeping design and code in sync from day one.
+
+Primitive tokens hold raw values (e.g., `blue/500 → #3B82F6`). Semantic tokens map those primitives to intent (e.g., `action/primary`). Component tokens go one level deeper, giving each UI element its own named slot (e.g., `button/primary/background/default`).
+
+<Note>
+  Tokens are generated as Figma Variables. Pro users get semantic token mapping and component token mapping for more granular control.
+</Note>

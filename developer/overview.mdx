@@ -1,0 +1,31 @@
+---
+title: "Developer Exports — Bridge Figma Tokens to Your Codebase"
+sidebarTitle: "Overview"
+description: "Export your Coreframe design tokens directly to tokens.json, Tailwind v3 config, or Tailwind v4 theme CSS for use in your frontend codebase."
+---
+
+Once you've generated your design system in Figma, Coreframe's Developer tab lets you hand off tokens to your engineering team in formats they can drop straight into a project. Instead of manually copying values out of Figma, you export a ready-to-use file — colors, spacing, radius, border widths, and opacity values all included — and your code stays in sync with your design from day one.
+
+## Export formats
+
+<CardGroup cols={3}>
+  <Card title="tokens.json" icon="file-code">
+    Standard W3C-compatible design tokens JSON, ready for Style Dictionary, Token Studio, and similar toolchains.
+  </Card>
+  <Card title="Tailwind v3" icon="file-code">
+    A `tailwind.config.js` file with your token values mapped into the `theme.extend` object for Tailwind v3 projects.
+  </Card>
+  <Card title="Tailwind v4" icon="file-code">
+    A `theme.css` file using `@theme` and CSS custom properties for the Tailwind v4 CSS-first configuration model.
+  </Card>
+</CardGroup>
+
+## Requirements
+
+<Note>
+  Developer Exports are a Pro feature. Upgrade to unlock all export formats. Make sure you've generated your tokens first — the export buttons pull from the variables Coreframe has already written to your Figma file.
+</Note>
+
+## How to access
+
+Open Coreframe in Figma and switch to the **Developer** tab. You'll see a card for each export format — **tokens.json**, **Tailwind v4 theme.css**, and **Tailwind v3 config**. Click the export button on the card you need, wait a moment while Coreframe builds the file, then save the downloaded file to your project. That's it — no copy-pasting, no manual mapping.

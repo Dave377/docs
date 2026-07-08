@@ -1,0 +1,113 @@
+---
+title: "Export tokens.json — Design Tokens as W3C-Compatible JSON"
+sidebarTitle: "tokens.json"
+description: "Export all your Coreframe design tokens as a tokens.json file compatible with Style Dictionary, Token Studio, and other design token toolchains."
+---
+
+The `tokens.json` export gives you every design token Coreframe has generated — colors, spacing, radius, border widths, and opacity values — in a single structured JSON file. The format follows W3C design token conventions, so it slots straight into popular toolchains like Style Dictionary and Token Studio without any manual conversion. Each token carries its value and type, making it easy for automated pipelines to transform the file into CSS, SCSS, JavaScript, or any other target format your project needs.
+
+## Export tokens.json
+
+<Steps>
+  <Step title="Open the Developer tab">
+    Open Coreframe in Figma and click the **Developer** tab at the top of the plugin panel.
+  </Step>
+  <Step title="Click Export tokens.json">
+    Find the **Export tokens.json** card and click the **Export tokens.json** button. Coreframe will read your local Figma variables and build the file.
+  </Step>
+  <Step title="Save the file to your project">
+    When the download prompt appears, save `tokens.json` to your project — for example, into a `tokens/` or `design/` directory at your repo root.
+  </Step>
+</Steps>
+
+## File structure
+
+Coreframe organises tokens by category at the top level, then by scale or name within each category. Every leaf node contains a `value` field holding the raw token value and a `type` field describing the token kind. The exported file also includes a `name`, `version`, and `generatedAt` timestamp so you always know which Coreframe session produced it.
+
+```json
+{
+  "name": "Coreframe Tokens",
+  "version": "1.0.0",
+  "generatedAt": "2025-01-15T10:30:00.000Z",
+  "tokens": {
+    "color": {
+      "primary": {
+        "50":  { "value": "#f0fdf4", "type": "color" },
+        "100": { "value": "#dcfce7", "type": "color" },
+        "500": { "value": "#179b49", "type": "color" },
+        "600": { "value": "#127a3a", "type": "color" },
+        "900": { "value": "#14532d", "type": "color" }
+      },
+      "neutral": {
+        "50":  { "value": "#fafafa", "type": "color" },
+        "100": { "value": "#f5f5f5", "type": "color" },
+        "500": { "value": "#737373", "type": "color" },
+        "900": { "value": "#171717", "type": "color" }
+      }
+    },
+    "spacing": {
+      "1": { "value": "4px",  "type": "spacing" },
+      "2": { "value": "8px",  "type": "spacing" },
+      "3": { "value": "12px", "type": "spacing" },
+      "4": { "value": "16px", "type": "spacing" }
+    },
+    "radius": {
+      "sm": { "value": "4px",  "type": "borderRadius" },
+      "md": { "value": "8px",  "type": "borderRadius" },
+      "lg": { "value": "12px", "type": "borderRadius" },
+      "xl": { "value": "16px", "type": "borderRadius" }
+    },
+    "border": {
+      "default": { "value": "1px", "type": "borderWidth" },
+      "thick":   { "value": "2px", "type": "borderWidth" }
+    },
+    "opacity": {
+      "subtle":   { "value": "0.08", "type": "opacity" },
+      "disabled": { "value": "0.40", "type": "opacity" }
+    }
+  }
+}
+```
+
+## Using with Style Dictionary
+
+Style Dictionary can consume `tokens.json` directly and transform it into CSS custom properties, SCSS variables, JavaScript ES modules, and more. Point Style Dictionary's `source` at your exported file, then define a platform in your config for each output format you need.
+
+```js style-dictionary.config.js
+import StyleDictionary from 'style-dictionary';
+
+const sd = new StyleDictionary({
+  source: ['tokens/tokens.json'],
+  platforms: {
+    css: {
+      transformGroup: 'css',
+      prefix: 'cf',
+      buildPath: 'src/styles/',
+      files: [
+        {
+          destination: 'tokens.css',
+          format: 'css/variables',
+        },
+      ],
+    },
+    js: {
+      transformGroup: 'js',
+      buildPath: 'src/tokens/',
+      files: [
+        {
+          destination: 'tokens.js',
+          format: 'javascript/es6',
+        },
+      ],
+    },
+  },
+});
+
+await sd.buildAllPlatforms();
+```
+
+Run your Style Dictionary build step whenever you re-export from Coreframe to regenerate all downstream files automatically.
+
+<Tip>
+  Refer to `buildTokensJson.ts` in the Coreframe source to see exactly how Figma variables are mapped into the token hierarchy — including how collection names become top-level keys and how alias values are resolved.
+</Tip>

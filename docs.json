@@ -1,72 +1,73 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "Coreframe",
+  "theme": "willow",
+  "favicon": "https://media.brand.dev/c7e64a8d-c5ea-4774-b64d-a91b5b94b21a.png",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
-  "favicon": "/favicon.svg",
-  "navigation": {
-    "pages": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "primary": "#179b49",
+    "light": "#82c8a6",
+    "dark": "#aeb152"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Get Coreframe",
+      "href": "https://getcoreframe.lemonsqueezy.com/checkout/buy/755a49c9-1276-48cb-8cf1-bda622d2a13c"
     }
   },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "installation"
+            ]
+          },
+          {
+            "group": "Design Tokens",
+            "pages": [
+              "tokens/overview",
+              "tokens/colors",
+              "tokens/typography",
+              "tokens/spacing",
+              "tokens/grid",
+              "tokens/border-radius",
+              "tokens/shadows",
+              "tokens/opacity"
+            ]
+          },
+          {
+            "group": "Components",
+            "pages": [
+              "components/overview",
+              "components/generating",
+              "components/single-components",
+              "components/component-list"
+            ]
+          },
+          {
+            "group": "Developer Exports",
+            "pages": [
+              "developer/overview",
+              "developer/tokens-json",
+              "developer/tailwind"
+            ]
+          },
+          {
+            "group": "Pro & Licensing",
+            "pages": [
+              "pro/overview",
+              "pro/activate",
+              "pro/faq"
+            ]
+          }
+        ]
+      }
     ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
   }
 }

@@ -1,0 +1,59 @@
+---
+title: "Coreframe Pro FAQ — Licensing, Billing, and Features"
+sidebarTitle: "FAQ"
+description: "Answers to common questions about Coreframe Pro: what's included, how to activate, billing, refunds, and troubleshooting license issues."
+---
+
+Below you'll find answers to the most common questions about Coreframe Pro — covering everything from what's included in the upgrade to how licensing, billing, and offline access work. If your question isn't answered here, reach out through your LemonSqueezy order page.
+
+<Accordion title="What's included in Pro?">
+  Coreframe Pro unlocks the following features on top of everything available in the free tier:
+
+  - **Individual color swatch editing** — fine-tune each swatch in your palette directly
+  - **Semantic token mapping** — map base palette values to purpose-based token names
+  - **Component token mapping** — map semantic tokens to specific component contexts
+  - **Advanced typography editing** — full control over type scale tokens and styles
+  - **All Pro components** — access the complete Coreframe component library
+  - **Custom spacing & semantic mapping** — define and map your own spacing tokens
+  - **Export to Tailwind theme (beta)** — generate a Tailwind-compatible theme config from your tokens
+</Accordion>
+
+<Accordion title="Can I use one license key across multiple Figma files?">
+  Yes. Your license key is tied to your activation on a given machine, not to a specific Figma file. You can open Coreframe in any Figma file on the same computer and your Pro status will be recognised automatically — no need to re-enter your key for each file.
+</Accordion>
+
+<Accordion title="What happens if I switch computers?">
+  Your license key is stored in Figma's local client storage on your current machine. If you move to a new computer, that storage doesn't transfer with you. Simply open Coreframe on the new machine, click the crown icon to open the Pro modal, and enter your license key again to re-activate.
+</Accordion>
+
+<Accordion title="How do I get a refund?">
+  Contact support through your LemonSqueezy order page and reference your order number. Refunds are handled according to [LemonSqueezy's refund policy](https://www.lemonsqueezy.com/terms) — please review it before submitting a request. The support team will respond as quickly as possible.
+</Accordion>
+
+<Accordion title="My license key isn't working — what should I check?">
+  Start with these steps before contacting support:
+
+  1. **Check for extra spaces** — copy and paste the key directly from your email rather than typing it manually. A single extra space will cause validation to fail.
+  2. **Wait a few minutes and try again** — the validation server may be temporarily unavailable. Retrying after two to three minutes resolves most transient errors.
+  3. **Check your internet connection** — activation requires a live connection to reach the validation server.
+  4. **Verify you're using the correct key** — log into your LemonSqueezy customer account and confirm the key shown in your order matches what you're entering.
+
+  If none of the above resolves the issue, contact support through your LemonSqueezy order page with a description of the error you're seeing.
+</Accordion>
+
+<Accordion title="Does Pro require an internet connection?">
+  Only for the initial activation and periodic re-validation. When you first activate your license, Coreframe contacts the validation server to confirm your key. After that, the result is cached locally for 24 hours. During that window, the plugin works fully offline with no network required. Once the cache expires, Coreframe silently re-validates the next time you use it with an active connection.
+</Accordion>
+
+<Accordion title="Are developer exports stable?">
+  The Tailwind theme export is currently in **beta**. While it's fully functional, the output structure may change between Coreframe versions as the feature matures. After upgrading Coreframe, re-export your tokens to make sure your project is using the latest format. Token exports (such as `tokens.json`) follow the same guidance — always re-export after a plugin update to stay in sync.
+</Accordion>
+
+<Accordion title="What is the difference between semantic tokens and component tokens?">
+  These are two distinct layers in a well-structured token architecture:
+
+  - **Semantic tokens** sit between your raw palette and your UI. They map base values to purpose-based names — for example, a hex colour in your palette becomes `color/background/primary`. This layer describes *what a value is for*, not what it looks like.
+  - **Component tokens** sit on top of semantic tokens and map them to specific component contexts — for example, `color/button/primary/background/default` references the semantic token rather than the raw value. This layer describes *where a value is used*.
+
+  Using both layers keeps your token system flexible: changing a base palette colour flows through semantic tokens and updates every component that references it, without you touching individual component styles. Both layers are Pro features in Coreframe.
+</Accordion>

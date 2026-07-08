@@ -1,0 +1,35 @@
+---
+title: "Border Radius Tokens — Corner Radius Scale in Figma"
+sidebarTitle: "Border Radius"
+description: "Generate a corner radius scale as Figma variables for consistent rounded corners across all components in your design system."
+---
+
+Corner radius is one of the most immediately noticeable aspects of a design system's personality — from sharp and angular to soft and pill-shaped. Coreframe generates a full radius scale as Figma Variables and maps each step to the components that use it, so your UI corners stay consistent without setting values by hand.
+
+## How to configure and generate radius tokens
+
+Open Coreframe and click the **Radius** tab. The generator has two sections: **Primitive** and **Component**.
+
+On the **Primitive** tab you'll find nine default radius steps based on the Tailwind scale:
+
+| Name | Value | Label |
+|---|---|---|
+| `rounded-none` | 0 px | None |
+| `rounded-sm` | 2 px | Small |
+| `rounded-md` | 4 px | Default |
+| `rounded-lg` | 6 px | Large |
+| `rounded-xl` | 8 px | XL |
+| `rounded-2xl` | 12 px | 2XL |
+| `rounded-3xl` | 16 px | 3XL |
+| `rounded-4xl` | 24 px | 4XL |
+| `rounded-full` | 9999 px | Full |
+
+Each row shows a live preview square so you can see the curvature at a glance. You can edit the name, label, or pixel value of any step inline, or click **Add Custom Radius** to insert a new step. Click **Map Semantic Radius** to advance to the Component tab.
+
+On the **Component** tab you'll see pre-built mappings from named roles (e.g., `radius-button`, `radius-card`, `radius-modal`) to a specific primitive step. These cover buttons, inputs, textareas, selects, checkboxes, cards, modals, dropdowns, tooltips, badges, chips, avatars, progress bars, and more. Pro users can edit any mapping via the dropdown in each row, or add entirely new component radius tokens.
+
+Click **Generate Radius Token** to write all variables to Figma.
+
+## How components bind to radius variables
+
+When Coreframe generates your component library, each component's corner radius is bound to the corresponding component radius variable rather than a hard-coded pixel value. Updating `radius-button` from `rounded-md` (4 px) to `rounded-lg` (6 px) in the plugin and regenerating automatically rounds the corners of every button instance in your Figma file. The same alias chain applies in code export, so your CSS border-radius values reflect the token rather than the raw pixel number.

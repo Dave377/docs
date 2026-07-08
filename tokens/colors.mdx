@@ -1,0 +1,43 @@
+---
+title: "Color Tokens — Generate Palettes and Semantic Colors in Figma"
+sidebarTitle: "Colors"
+description: "Configure your brand colors and let Coreframe auto-generate a full palette, semantic tokens, and component color tokens as Figma variables."
+---
+
+Coreframe builds a complete color system from your brand's base hues. You provide up to seven seed colors — brand, secondary, neutral, success, warning, error, and info — and Coreframe auto-generates a full palette of shades, maps them to semantic roles, and pushes everything to Figma as native Variables with Light and Dark modes. The result is a layered token architecture that scales from raw palette values all the way down to per-component, per-state color slots.
+
+## Color generation steps
+
+<Steps>
+  <Step title="Open Coreframe and go to the Colors tab">
+    Launch the plugin inside your Figma file. Click the **Colors** tab in the navigation bar to open the color generator.
+  </Step>
+  <Step title="Enter your brand's base colors">
+    You'll see seven default seed colors: **Brand**, **Secondary**, **Neutral**, **Success**, **Warning**, **Error**, and **Info**. Click the color swatch next to each name and enter your hex value, or drag the Hue, Saturation, and Brightness sliders. Quick-pick swatches let you jump to a preset instantly.
+  </Step>
+  <Step title="Preview the generated palette">
+    Click **Generate Palette** to advance to the Preview step. Coreframe calculates shades across an 11-step scale: `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, and `950`. You can also choose a 5-step (`100–900`) or 9-step (`100–900`) scale from the scale selector.
+  </Step>
+  <Step title="Edit individual swatches (Pro)">
+    Pro users can click any swatch in the palette preview to open an inline color editor. Adjust the hue, saturation, and brightness, or type a hex value directly, then click **Apply** to override that specific shade.
+  </Step>
+  <Step title="Click Generate to create Figma variables">
+    On the **Semantic Tokens** step, review the automatically generated semantic mappings, then click **Generate Color Tokens**. Coreframe creates a `Color` variable collection in your Figma file containing all primitive and semantic variables. Pro users can continue to the **Component Tokens** step before generating to include component-level variables too.
+  </Step>
+</Steps>
+
+## Color token structure
+
+Coreframe organizes color tokens into three layers, each building on the one below it.
+
+- **Base colors** — the raw palette generated from your seed hues. These live under `primitive/{colorName}/{shade}` (e.g., `primitive/brand/500`, `primitive/neutral/200`) and are marked hidden from publishing so they stay internal to your system.
+- **Semantic tokens** — purpose-based aliases that point at palette values (e.g., `semantic/foreground/default`, `semantic/surface/muted`, `semantic/action/primary`). Semantic tokens carry both a Light and a Dark mode value, so toggling modes updates every semantic usage instantly. Semantic token mapping is a **Pro** feature.
+- **Component tokens** — component-specific slots that reference semantic or primitive values (e.g., `color/button/primary/background/default`, `color/button/primary/text/hover`). These live in the `Component` collection so they stay separate from the core `Color` collection. Component token generation is a **Pro** feature.
+
+## Light and dark mode
+
+When Coreframe creates the `Color` variable collection, it automatically sets up two modes — `Light` and `Dark`. Every semantic and component variable receives a value for both modes. Primitive palette variables share a single value across modes; the semantic layer handles the light/dark switch. To preview dark mode in Figma, select any frame, open the **Variables** panel, and set the `Color` collection mode to `Dark`.
+
+<Tip>
+  Pro users can map semantic tokens to their base palette for full control over theming. Open the Semantic step, use the dropdown next to each token to swap the light or dark reference, and regenerate.
+</Tip>

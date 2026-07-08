@@ -1,0 +1,56 @@
+---
+title: "Opacity Tokens — Transparency Scale as Figma Variables"
+sidebarTitle: "Opacity"
+description: "Generate opacity scale tokens as Figma variables for overlays, disabled states, and decorative elements in your design system."
+---
+
+Opacity tokens give you a named, reusable set of transparency values instead of scattering arbitrary percentages across your components. Coreframe generates a three-layer opacity system — primitive, semantic, and component — as Figma Variables so every overlay, disabled state, and muted element draws from the same consistent scale.
+
+## How to configure and generate opacity tokens
+
+Open Coreframe and click the **Opacity** tab. The generator has three sections: **Primitive**, **Semantic**, and **Component**.
+
+On the **Primitive** tab you'll find 15 default opacity steps:
+
+| Name | Value | Label |
+|---|---|---|
+| `opacity-0` | 0% | Invisible |
+| `opacity-5` | 5% | Near Transparent |
+| `opacity-10` | 10% | Very Subtle |
+| `opacity-20` | 20% | Subtle |
+| `opacity-25` | 25% | Quarter |
+| `opacity-30` | 30% | Light |
+| `opacity-40` | 40% | Faded |
+| `opacity-50` | 50% | Half |
+| `opacity-60` | 60% | Muted |
+| `opacity-70` | 70% | Dim |
+| `opacity-75` | 75% | Three Quarter |
+| `opacity-80` | 80% | Visible |
+| `opacity-90` | 90% | Nearly Opaque |
+| `opacity-95` | 95% | Almost Full |
+| `opacity-100` | 100% | Opaque |
+
+Each row displays a checkered-background preview swatch so you can see the transparency level at a glance. You can edit a step's name, label, or percentage value inline. Click **Add Custom Opacity** to insert a new step, or the trash icon to remove one.
+
+On the **Semantic** tab you'll find pre-built mappings that give meaningful names to opacity values:
+
+- `opacity-disabled → opacity-40` — elements that are inactive but still visible
+- `opacity-overlay → opacity-50` — modal backdrops and sheet scrims
+- `opacity-placeholder → opacity-60` — placeholder text and ghost content
+- `opacity-ghost → opacity-20` — watermarks and decorative backgrounds
+- `opacity-muted → opacity-70` — secondary text and de-emphasized content
+- `opacity-hover → opacity-80` — hover-state image overlays
+
+Pro users can rename, repoint, or add new semantic mappings via the dropdowns.
+
+On the **Component** tab you'll see four default component-level tokens — `button-disabled`, `input-disabled`, `modal-backdrop`, and `placeholder-text` — each pointing at a semantic opacity token. This final layer makes it trivial to adjust the disabled opacity for all form elements by changing a single semantic token.
+
+Click **Generate Opacity Token** to push all three layers into Figma as Variables.
+
+## Use cases
+
+Opacity tokens handle three primary scenarios in a design system:
+
+- **Overlays** — use `opacity-overlay` (50%) on the backdrop behind modals, drawers, and sheets to dim the content underneath without hiding it entirely.
+- **Disabled states** — apply `opacity-disabled` (40%) to buttons and inputs to visually communicate that an element is non-interactive. Binding this to a variable means you can tune the exact value system-wide without hunting down individual layers.
+- **Hover states** — image cards and interactive tiles commonly darken or lighten on hover. Using `opacity-hover` (80%) as a named token keeps these micro-interactions consistent across your component library.
