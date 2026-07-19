@@ -4,9 +4,9 @@
   "theme": "willow",
   "favicon": "https://media.brand.dev/c7e64a8d-c5ea-4774-b64d-a91b5b94b21a.png",
   "colors": {
-    "primary": "#179b49",
-    "light": "#82c8a6",
-    "dark": "#aeb152"
+    "primary": "#7c3aed",
+    "light": "#6366f1",
+    "dark": "#4338ca"
   },
   "navbar": {
     "primary": {
@@ -69,5 +69,12 @@
         ]
       }
     ]
+  },
+  "description": "Official documentation for Coreframe, the Figma plugin for generating complete design systems with design tokens, variables, color palettes, typography, reusable UI components, themes, and developer-ready documentation.",
+  "fonts": {
+    "family": "Plus Jakarta Sans"
+  },
+  "icons": {
+    "library": "lucide"
   }
 }
