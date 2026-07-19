@@ -2,7 +2,10 @@
   "$schema": "https://mintlify.com/docs.json",
   "name": "Coreframe",
   "theme": "willow",
-  "favicon": "https://media.brand.dev/c7e64a8d-c5ea-4774-b64d-a91b5b94b21a.png",
+  "favicon": {
+    "light": "/images/Icon128.png",
+    "dark": "/images/Icon128.png"
+  },
   "colors": {
     "primary": "#7c3aed",
     "light": "#6366f1",
@@ -76,5 +79,33 @@
   },
   "icons": {
     "library": "lucide"
+  },
+  "logo": {
+    "light": "/images/logocleancoreframe.png",
+    "dark": "/images/logocleancoreframe.png"
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ],
+    "display": "header"
+  },
+  "seo": {
+    "metatags": {
+      "keywords": "Coreframe, Figma plugin, AI design system generator, design system, design tokens, Figma variables, UI components, design documentation, design system documentation",
+      "author": "Coreframe",
+      "application-name": "Coreframe",
+      "generator": "Mintlify",
+      "robots": "index,follow",
+      "googlebot": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+    },
+    "indexing": "all"
   }
 }
